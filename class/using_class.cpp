@@ -11,8 +11,8 @@ int main()
     student1.setId(619);
     student1.setgradDate(2019);
 
-    //Two ways of printing the values of Student class
-    //1. Call the print function from class
+    //Two ways of printing the values of Student class.
+    //1. Call the print function from class.
     std::cout<<"Student = ";
     student1.print();
     std::cout<<"\n\n";
