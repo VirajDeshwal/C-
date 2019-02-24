@@ -1,67 +1,70 @@
-#include<iostream>
+/*header file for main.cpp*/
+#include <iostream>
+#include <iomanip> 
 using namespace std;
 
-class Student
+class Gameboard
 {
-    int grade[5];
-    int id;
-
-    public:
-        Student();
-        void setId(int getIdIn);
-        void setGrade(int index, int getGradeIn);
-        int getGrade(int index);
-        int getId();
-        float getAvg();
-        void printInfo();
+    char gameSpace[4][4];
+public:
+    Gameboard(); //initialize the board with '-' in all 16 spaces
+    void setGameSpace(int row,int column, char value); //x,y,or '-' in each game square
+    char getGameSpace(int row,int column);
+    int fourInRow(); //four 'x's in any row 'wins'
+    void printInfo(); //print the game board in a 4x4 matrix
 };
 
-//Defining the constructon
-Student::Student()
+//TODO: complete the class definition
+Gameboard::Gameboard()
 {
-    for(int i=0; i<5; i++)
+for (int i=0; i<4; i++)
+    for( int j=0; j<4; j++)
     {
-        grade[i] = 0;
+        gameSpace[i][j]='-';
     }
-    id = 0;
+
 }
 
-//Defining the Set() function
-void Student::setId(int getIdIn)
+void Gameboard::setGameSpace(int row, int column, char value)
 {
-    id = getIdIn;
+    gameSpace[row][column] = value;
 }
 
-void Student::setGrade(int index, int getGradeIn)
+char Gameboard::getGameSpace(int row, int column)
 {
-    grade[index] = getGradeIn;
+    return gameSpace[row][column];
 }
 
-int Student::getId()
+int Gameboard::fourInRow()
 {
-    return id;
-}
-
-int Student::getGrade(int index)
-{
-    return grade[index];
-}
-
-//Helper function Avg()
-float Student::getAvg()
-{
-    int sum=0;
-    for (int i=0; i<5; i++)
+    int count;
+    for(int i=0; i<4; i++)
     {
-        sum = sum+ grade[i];
-
+        count = 0;
+        for(int j=0; j<4; j++)
+        {
+            if(gameSpace[i][j]=='x')
+            {
+                count++;
+            }
+        }
+        
+        if(count ==4)
+            return 1;
     }
-    return sum/5.0;
+    return 0;
 }
 
-void Student::printInfo()
+void Gameboard::printInfo()
 {
-    cout<<id<<"\n";
-    for (int i=0; i<5; i++)
-        cout<<grade[i]<<" ";
+    cout<<std::setw(5);
+    cout<<"\n";
+    for(int i=0; i<4; i++)
+    {
+        for (int j=0; j<4; j++)
+        {
+            cout<<gameSpace[i][j];
+        }
+        cout<<"\n";
+    }
 }
