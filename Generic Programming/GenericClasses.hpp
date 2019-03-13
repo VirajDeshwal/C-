@@ -1,37 +1,67 @@
-#include<iostream>
+/*header file*/
+#include <iostream>
 using namespace std;
 
-//Defining a Generic Class
-template <class T>
-class StudentRecord
+template<class T>
+class Multiplier
 {
-    private:
-            
-            T grade;
-            int studentId;
+    T m1, m2;
+    T product;
+    
     public:
-            //Defining the constructor for the Generic Class
-            StudentRecord(T input);
-            void setId(int idIn);
-            void printGrades();
+            //SET function
+            void setM1(T mIn);
+            void setM2(T mIn);
+            void setProduct();
+            void printEquation();
+            T getM1();
+            T getM2();
+            T getProduct();
+            
+            
 };
 
-template<class T> 
-StudentRecord<T>::StudentRecord(T input)
+//Definition of SET function
+template <class T>
+void Multiplier<T>::setM1(T mIn)
 {
-    grade = input;
+    m1 = mIn;
+}
+template <class T>
+void Multiplier<T>::setM2(T mIn)
+{
+    m2 = mIn;
 }
 
-template<class T>
-void StudentRecord<T>::setId(int idIn)
+template <class T>
+void Multiplier<T>::setProduct()
 {
-    studentId = idIn;
+    product = m1*m2;
 }
 
-template<class T>
-void StudentRecord<T> ::printGrades()
+template <class T>
+void Multiplier<T>::printEquation()
 {
-     cout<<"ID# "<<studentId<<": ";
-    cout<<grade<<"\n ";
-    cout<<"\n";
-} 
+    std::cout<<m1<<" * "<<m2<<" = "<<product;
+}
+
+
+//Defintion of GET functions
+
+template <class T>
+T Multiplier<T>::getM1()
+{
+    return m1;
+}
+
+template <class T>
+T Multiplier<T>::getM2()
+{
+    return m2;
+}
+
+template <class T>
+T Multiplier<T>::getProduct()
+{
+    return product;
+}
