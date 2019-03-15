@@ -77,7 +77,7 @@ TA::TA()
 {
     supervision = "Unknown";
 }
-
+// idIn from setId is take as an input for supervision in derived class.
 void TA::setSupervision(string idIn)
 {
     supervision= idIn;
