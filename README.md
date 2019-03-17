@@ -1,2 +1,2 @@
-# This repository consist of the code for Udacity C++ course
+# This repository consist of the Basic code for Udacity C++ course
 C++ code for Udacity Course.
