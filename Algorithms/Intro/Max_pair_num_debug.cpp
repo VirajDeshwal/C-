@@ -12,12 +12,12 @@ int main()
     
 while(true)
 {
-    int n = rand() % 5 + 2; // random size of a list between 2 to 6.
+    int n = rand() % 1000 + 2; // random size of a list between 2 to 6.
     cout <<n<<"\n";
     vector<int> a ; // defining a vector for the memory allocation of the stack.
     for (int i=0; i<n; ++i)
     {
-        a.push_back(rand() % 10 ); // Pushing the random numbers between 0 to 9 into stack.
+        a.push_back(rand() % 1000 ); // Pushing the random numbers between 0 to 9 into stack.
     }
     for(int i=0; i<n; ++i)
     {
