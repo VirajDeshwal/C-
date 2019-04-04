@@ -2,21 +2,29 @@
 #include<iostream>
 using namespace std;
 
-int maxMul(const vector<int> &number)
+long long  maxMul(const vector<int> &number)
 {
-    int result = 0;
-    int n = number.size();  // n is equal to the length of numbers.
-    for (int i=0; i<n; ++i)
-    {
-        for(int j=i+1; j<n; ++j)  //comparing index i and index i+1;
-        {
-            if(number[i]*number[j]>result)
-            {
-                result = number[i]*number[j];
-            }
-        }
-    }
-    return result;
+   int max1 = -1;
+   for (int i=0; i<number.size(); ++i)
+   {
+       if((max1 ==-1) || (number[i] > number[max1])) 
+       /* checking the condition 
+        1. if max = -1 or index i > max */
+
+       {
+           max1 = i;
+       }
+   }
+   int max2 = -1;
+   for(int j=0; j< number.size(); ++j)
+   {
+       if((number[j] != number[max1]) && ((max2 ==-1) || (number[j]> number[max2])))
+       {
+           max2=j;
+       }
+   }
+   return ((long long) (number[max1])) * number[max2];
+
 }
 
 int main()
@@ -30,7 +38,7 @@ int main()
     {
         cin>>number[i];
     }
-    int result = maxMul(number);
+    long long result = maxMul(number);
     cout<<"The result is: "<<result<<"\n";
     return 0;
 }
