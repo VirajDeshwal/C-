@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int get_fibonacci_last_digit_naive(int n) {
+int get_fibonacci_last_digit(int n) {
     if (n <= 1)
         return n;
 
@@ -21,6 +21,6 @@ int main() {
     int n;
     cout<<"Enter the number: ";
     std::cin >> n;
-    int c = get_fibonacci_last_digit_naive(n);
+    int c = get_fibonacci_last_digit(n);
     std::cout << c << '\n';
     }
